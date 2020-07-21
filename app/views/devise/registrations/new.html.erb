@@ -1,106 +1,220 @@
 
-<style type="text/css">
-  body{
-    background-color: #525252;
-}
-.centered-form{
-  margin-top: 60px;
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<div class="main">
+  <style type="text/css">
+  @charset "utf-8";
+
+
+@import url//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
+
+
+
+    
+
+
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
 }
 
-.centered-form .panel{
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+/* ---------- GENERAL ---------- */
+
+* {
+  box-sizing: border-box;
+    margin:0px auto;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
 }
 
-input{
-  width: 100%;
+body {
+  background: radial-gradient(ellipse at center,  #0264d6 1%,#1c2b5a 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+height:calc(100vh);
+width:100%;
+   
+    color: #606468;
+  font: 87.5%/1.5em 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+input {
+  border: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5em;
+  padding: 0;
+  width: 100%
+  
+}
+
+p {
+  line-height: 1.5em;
+}
+
+.clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+}
+
+
+
+
+
+#login, .logo{
+    display:inline-block;
+    width:40%;
+}
+#login{
+
+  padding: 0px 22px;
+  width: 59%;
+}
+
+
+#login form input {
+  height: 50px;
+}
+fieldset{
+    padding:0;
+    border:0;
+    margin: 0;
+
+}
+
+#login form input[type="submit"] {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #000000;
+  color: #eee;
+  font-weight: bold;
+  /* margin-bottom: 2em; */
+  text-transform: uppercase;
+  padding: 5px 10px;
+  height: 30px;
+}
+
+#login form input[type="submit"]:hover {
+  background-color: #d44179;
+}
+em {
+    font-style: italic;
+    color: white;
+}
+.container {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 h2, .h2 {
-    font-size: 15px;
-    }
-    #rpw{
-      margin-top: 21px;
-    }
+    font-size: 16px;
+    color: white;
+}
+
+
+
 </style>
+        
+    <body>
+        <div class="container">
+<center>
+      <div id="login">
+        
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+     <%= render "devise/shared/error_messages", resource: resource %>
+              <h1 align="center" style="color: white">Sign Up</h1>
+     
+            <div class="row">
+              <div class="col-lg-6">
+  
+    
+    <%= f.text_field :firstname , autofocus: true, :placeholder => "First name"  %>   
 
-
-
-
-
-<div class="container">
-        <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                <%= render "devise/shared/error_messages", resource: resource %>
-              <h2 align="center">Sign Up</h2>
-            </div>
-            <div class="panel-body">
-              <form role="form">
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-  <div class="field">
-    <%= f.label :First_name %><br />
-    <%= f.text_field :firstname , autofocus: true, :placeholder => "First name"  %>
-  </div>
-    </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-  <div class="field">
-    <%= f.label :Last_name %><br />
+</div>
+</br>
+              <div class="col-lg-6">
+  
+    
     <%= f.text_field :lastname , autofocus: true ,:placeholder => "Last name"%>
-  </div>
-  </div>
-                  </div>
-                </div>
+  
+</div>
 
-                <div class="form-group">
+  </div>
+</br>
+           
 <div class="field">
     
-    <%= f.label :email %><br />
+    
     <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:placeholder => "Enter email"%>
   </div>
-  </div>
 
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+</br>
+                
 
   <div class="field">
-    <%= f.label :password %>
+     
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", :placeholder => "Entet password"%>
   </div>
-  </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+  </br>
 
   <div class="field" id="rpw">
-    <%= f.label :password_confirmation %><br />
+
+ 
+  <br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" ,:placeholder => "Re-Enter password" %>
   </div>
-  </div>
-                  </div>
-                </div>
+  
+   </br>               
   <div class="actions">
     <%= f.submit "Sign up" %>
     <div style="text-align: center;">
     <%= render "devise/shared/links"%>
+     </fieldset>
 </div>
-  </div>
-<% end %>
+  
+
+
+
 
               </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+</center>
+</div>
+            
+            <% end %>
+            </body>
+         

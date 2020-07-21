@@ -1,51 +1,79 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <style type="text/css">
+    @charset "utf-8";
+
+
+@import url//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
   body{
-    background-color: #525252;
+
+background: radial-gradient(ellipse at center,  #0264d6 1%,#1c2b5a 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a',GradientType=1 );
+
 }
-.centered-form{
-  margin-top: 60px;
+.vijju {
+  border-radius: 3px;
+  
+ border:none;
+  background-color: #000000;
+  color: #eee;
+  font-weight: bold;
+
+  padding: 5px 10px;
+  height: 30px;
+
 }
 
-.centered-form .panel{
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+.vijju:hover {
+  background-color: #d44179;
 }
+h2 {
+  color: white;
 
-input{
-  width: 100%;
 }
-h2, .h2 {
-    font-size: 15px;
-    }
-    #rpw{
-      margin-top: 21px;
-    }
+ h3 {
+  color: white;
+
+}
+p{
+  color: white;
+}
+a{
+  color: white;
+}
+a:hover{
+  color: black;
+}
+input {
+  height: 50px;
+}
 </style>
+<body>
 <div class="container">
-        <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
+          <center>
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+       <%= render "devise/shared/error_messages", resource: resource %>
   
 
   <div class="field">
-    <%= f.label :email %><br />
+   
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  </div><br>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    
+    <%= f.password_field :password, autocomplete: "new-password" ,:placeholder => "Enter new password"%>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -53,26 +81,27 @@ h2, .h2 {
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",:placeholder => "Enter confirm password" %>
   </div>
-
+<br>
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+   
+    <%= f.password_field :current_password, autocomplete: "current-password",:placeholder => "Enter current password" %>
+  </div><br>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class: "vijju" %>
   </div>
 <% end %>
 
           <h3>Cancel my account</h3>
 
-          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,class: "vijju"%></p>
 
       <%= link_to "Back", :back %>
+       </center>
          </div>
-        </div>
-       </div>
-      </div>
+        
+</body>
+     

@@ -1,68 +1,98 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- Include the above in your HEAD tag -->
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <style type="text/css">
-  body{
-    background-color: #525252;
-}
-.centered-form{
-  margin-top: 60px;
-}
+   @charset "utf-8";
 
-.centered-form .panel{
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
-}
-span{
-  font-weight: 700;
-}
-input{
-  width: 200px;
-  }
 
-</style>
+@import url//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
-<div class="container">
-  
-        
+
+
+body{
     
-        <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
+background: radial-gradient(ellipse at center,  #0264d6 1%,#1c2b5a 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+height:calc(100vh);
+width:100%;
+}
+#login form input[type="submit"]:hover {
+  background-color: black;
+}
+input {
+  height: 50px;
+}
+.vijju {
+  border-radius: 3px;
+  
+ border:none;
+  background-color: #000000;
+  color: #eee;
+  font-weight: bold;
 
+  padding: 5px 10px;
+  height: 30px;
 
+}
 
-         <h2 class="panel-title" align="center">Forgot your password?</h2>
+.vijju:hover {
+  background-color: #d44179;
+}
+.container {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#login form input {
+  height: 50px;
+}
+a{
+  color: white;
+}
+a:hover{
+  color:black;
+  text-decoration: underline;
+}
+</style>
+<body>
+
+ <div class="container">
+  <center>
+       
+      <div id="login">
+         <h2  align="center" style="color: white;">Forgot your password?</h2>
 
         
          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
 
-
             </div>
-            <div class="panel-body">
-              <form role="form">
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <div class="form-group">
-
+            
               <div class="field">
-              <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-             </div>
+             
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "Enter email" %>
+             </div></br>
 
   <div class="actions">
-    <%= f.submit "Send me reset password " %>
+    <%= f.submit "Send me reset password ", class: "vijju" %>
   </div>
-  
+  <div style="text-align: center;">
   <%= render "devise/shared/links" %>
 
 <% end %>
-
-
-
-   </div>
- </div>
 </div>
-</form>
 </div>
+  </center>
+
+
+</body>
 

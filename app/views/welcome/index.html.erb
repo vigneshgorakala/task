@@ -1,23 +1,40 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
  <!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+  @charset "utf-8";
+
+
+@import url//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+  body{
+
+background: radial-gradient(ellipse at center,  #0264d6 1%,#1c2b5a 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #2d98da;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  border-radius:5px;
   
 
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
+  background-color: #4b7bec;
 }
 
 .dropdown {
@@ -48,13 +65,23 @@
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+.table{
+      margin-top: 40px;
+}
+h1{
+  color: white;
+}
+#vj{
+  color: white;
+  margin-top: 10px;
+}
+
 </style>
 </head>
-</body>
+<body>
 
- 
     <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">
+    <button onclick="myFunction()" class="dropbtn">
    
 	         <span class="glyphicon glyphicon-user"></span>
                        <%= current_user.firstname %>
@@ -95,6 +122,31 @@ window.onclick = function(event) {
   }
 }
 </script>
+<marquee id="vj" style="background-color: #3867d6;">Welcome <%= current_user.email %></marquee>
+<div class="container">
+ 
+     <h1 style="text-align: center; margin-top: 20px; ">Welcome to Dashboard</h1>
+<table class="table table-condensed">
+
+  <tr class="table-primary">
+    <th>UserId</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+<% @users.each do |user| %>
+<tr>
+<td class="table-success"> <%= user.id %></td>
+<td class="table-success"> <%= user.firstname %></td>
+<td class="table-success"> <%= user.lastname %></td>
+<td class="table-success"><%= user.email %></td>
+<td class="table-success"><%= link_to 'Edit', edit_user_registration_path %> </td>
+</tr>
+<% end %>
+</table>
+ </div>
+</div>
 </body>
 </html>
 
